@@ -1,0 +1,10 @@
+p:active{
+    background-color: aqua;
+}
+a:active{
+    color: red;
+}
+a.visited{
+    color:orange;
+}
+a:li

@@ -1,0 +1,57 @@
+img {
+  width: 100%;
+}
+
+#main-title {
+  font-size: 3.2rem;
+}
+
+#content {
+  font-size: 1.1 rem;
+  word-spacing: 1px;
+  line-height: 1.4rem;
+}
+
+#sources {
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+}
+
+/*-----header-----*/
+#logo img {
+  width: 210px;
+}
+
+#site-title a {
+  font-size: 1.8rem;
+  color: #1a1a1a;
+  font-weight: bold;
+  font-family: sans-serif;
+  text-decoration: none;
+  line-height: 1.25px;
+}
+
+#site-title a:hover {
+  color: #dc6520;
+}
+
+#about-site {
+  color: #3c5349;
+}
+
+/*-----main-----*/
+#blog-header h1 {
+  color: #13222c;
+  font-family: sans-serif;
+}
+
+#blog-content {
+  width: 90%;
+}
+
+.h-style {
+  color: #13222c;
+}

@@ -1,0 +1,28 @@
+.styled-first-letter::first-letter{
+    font-size:2rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    /* background-image: linear-gradient(red,yellow); */
+}
+p{
+    background-color: lightgrey;
+    text-transform: capitalize;
+}
+p::first-letter{
+    font-size: 2rem;
+    font-weight: bolder;
+    text-transform: capitalize;
+}
+p::before{
+    content: ' before ';
+    font-size:2rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    
+}
+p::after{
+    content: ' after ';
+    font-size:2rem;
+    font-weight: bold;
+    text-transform: capitalize;
+}

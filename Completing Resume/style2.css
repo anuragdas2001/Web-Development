@@ -1,0 +1,11 @@
+#container{
+    height:400px;
+    width:300px;
+    margin:40px;
+    border:2px solid black;
+    border-radius: 2%;
+    /* background-image: linear-gradient(red,blue 80%); */
+    /* background-image: linear-gradient(to top right,red,blue 80%); */
+    background: repeating-linear-gradient(to right red,blue,10px);
+    background: radial-gradient(red,blue);
+}

@@ -1,0 +1,31 @@
+html{
+    font-size: 40px;
+}
+#div1{
+    height: 4rem; 
+    /* 75vh; */
+    /* 200px; */
+    width: 6rem;
+     /* 100vw; */
+    /* 300px; */
+    background-color:rgba(147, 34, 34,0.1 );
+    /* background-color:hsl(240, 89%, 53%,0.5); */
+    /* opacity: 0.25; */
+    /* background-color: rgba(0, 0, 255, 1); */
+    /* border-width:2px 4px 6px 8px; */
+    /*          top right down left */
+    border-width: 4px;
+    border-style: dotted;
+    border-color: red;
+    border:10px dashed blue;
+    border-radius: 10px;
+}
+#div2{
+    height: 50%;
+    width: 60%;
+    background-color: cyan;
+}
+#sample-para{
+    border: 2px solid green;
+    border-left-width: 8px;
+}

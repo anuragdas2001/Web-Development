@@ -1,0 +1,23 @@
+p {
+    color: blue;
+
+}
+
+.color-red {
+    color: red;
+
+}
+#blog-title:hover
+{
+    color:orange;
+}
+li h4{
+    font-size: 20px;
+    font-family: cursive;
+}
+h1,p{
+    font-family: sans-serif;
+}
+#color-green {
+    color: rgb(15, 223, 15);
+}

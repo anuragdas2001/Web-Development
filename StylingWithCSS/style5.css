@@ -1,0 +1,23 @@
+#outer-div{
+    border:2px solid black;
+    margin:20px;
+    position:relative;
+}
+#div1{
+    height:200px;
+    width:200px;
+    background-color: bisque;
+}
+#div2{
+    height:200px;
+    width:200px;
+    background-color: rgb(228, 134, 19);
+    position: absolute;
+    left:30px;
+    top: 30px;
+}
+#div3{
+    height:200px;
+    width:200px;
+    background-color: rgb(11, 202, 91);
+}
