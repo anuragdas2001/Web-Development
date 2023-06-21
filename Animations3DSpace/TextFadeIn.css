@@ -1,0 +1,22 @@
+@keyframes fadein{
+    0%{
+        opacity:1;
+    }
+    100%{
+        opacity:0;
+    }
+}
+#div1{
+    height:200px;
+    width:200px;
+    /* background-color: aquamarine; */
+    position: absolute;
+    top:40%;
+    left:40%;
+    padding: 4px;
+    animation: fadein 1.5s infinite;
+    
+}
+#div2{
+    padding: 10px 0px 0px 0px;
+}

@@ -1,0 +1,42 @@
+.gradient-bg {
+    background: linear-gradient(to bottom, #cccccc, #999999);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 200px;
+    /* Additional styling properties as needed */
+  }
+.mt75{
+    margin-top: 75px;
+
+}
+.txt-align{
+    text-align: center;
+}
+.txt-bold{
+    font-weight: bolder;
+}
+.font-size{
+    font-size: xx-large;
+}
+.img1{
+    height:40px;
+    width: 40px;
+}
+.md75{
+    margin-bottom: 75px;
+    
+}
+.mr75{
+    margin-right:100px;
+}
+.ml100{
+    margin-left:100px;
+}
+.ml75{
+    margin-left:75px;
+}
+.mr40{
+    margin-right: 200px;
+}

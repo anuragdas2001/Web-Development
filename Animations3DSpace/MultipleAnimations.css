@@ -1,0 +1,24 @@
+@keyframes multi{
+    0%{
+        
+        height: 100px;
+        width:100px;
+        transform: rotate(0deg);
+        border-radius: 50%;
+       
+    }
+    100%{
+        
+        transform: scale(1);
+        transform: rotate(360deg);
+    }
+}
+#div1{
+    height:200px;
+    width:200px;
+    position:absolute;
+    top:40%;
+    left:50%;
+    background-color: aquamarine;
+    animation: multi 0.9s infinite alternate-reverse;
+}

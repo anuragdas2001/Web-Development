@@ -1,0 +1,25 @@
+#div1{
+    height:200px;
+    width: 200px;
+    position: absolute;
+    top:20%;
+    left:20%;
+    background-color: aquamarine;
+    /* transform: rotate(120deg); */
+    /* transform: scale(2); */
+    /* transform: translate(180px,190px); */
+    transition: 1s ease-in-out;
+
+}
+#div1:hover{
+    height:300px;
+    width:300px;
+    transition:1s;
+    transform:scale(1.5);
+    translate:100px;
+    transition:1s steps(6,end);
+    
+
+    
+    
+}

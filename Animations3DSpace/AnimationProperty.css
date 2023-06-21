@@ -1,0 +1,24 @@
+/* @keyframes are states of an animation */
+@keyframes changeShape{
+    from{
+        border-radius:0%;
+    }
+    25%{
+        border-radius: 12.5%;
+    }
+    50%{
+        border-radius: 25%;
+    }
+    to{
+        border-radius: 50%;
+    }
+}
+#div1{
+    height:200px;
+    width: 200px;
+    position: absolute;
+    top:40%;
+    left:40%;
+    background-color: aquamarine;
+    animation: changeShape 1s ease-in-out 4 alternate;
+}
