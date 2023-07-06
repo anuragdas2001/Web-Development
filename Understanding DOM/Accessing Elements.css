@@ -1,0 +1,12 @@
+body {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  div {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #dedede;
+  }
+  

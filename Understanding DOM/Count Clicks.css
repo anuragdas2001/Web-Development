@@ -1,0 +1,16 @@
+#box{
+    width:200px;
+    height:200px;
+    background-color: red;
+    margin-top:15%;
+    margin-left:45%;
+}
+#counter{
+    border: 2px solid black;
+    height:30px;
+    width:110px;
+    padding:5px;
+    margin-left:48%;
+    margin-top:2%;
+
+}

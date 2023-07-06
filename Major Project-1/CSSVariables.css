@@ -1,0 +1,6 @@
+:root{
+    --section-color-blue: #2857a4;
+}
+time-traveller i{
+    color:var(--section-color-blue);
+}

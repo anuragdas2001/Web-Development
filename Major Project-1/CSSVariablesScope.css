@@ -1,0 +1,27 @@
+:root{
+    --text-color:red;
+}
+
+.container{
+    color:var(--text-color);
+    padding:1rem;
+    border:2px solid black;
+}
+.inner-div1{
+    --text-color:blue;
+    color:var(--text-color);
+    padding:1rem;
+    border:2px solid black;
+}
+.inner-div2{
+    color:var(--text-color,orange);
+    padding:1rem;
+    border:2px solid black;
+    margin:0.2rem;
+}
+.inner-div3{
+    color:var(--text-color);
+    padding:1rem;
+    border:2px solid black;
+    margin:0.2rem;
+}
