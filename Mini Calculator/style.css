@@ -41,7 +41,7 @@
   margin-top: 10px;
   margin-left: 7px;
   margin-bottom: 10px;
-  background-color: #26231a;
+  background-color: #4e4836;
   color:#dbdaba;
   /* margin-top: 20px; */
   display: inline-flex;
@@ -57,3 +57,7 @@
 /* .Symbol{
   margin-top: 3px;
 } */
+
+body{
+  background-color: rgb(26, 24, 24);
+}
