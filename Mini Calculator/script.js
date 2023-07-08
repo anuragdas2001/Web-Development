@@ -5,6 +5,8 @@ var op2 = null;
 var operator = null;
 function ShowNumber(value) {
   dis.textContent += value;
+
+  
 }
 function FactOp(op1){
  
@@ -19,6 +21,12 @@ function FactOp(op1){
 }
 function handleOp(value) {
   operator = value;
+  if(value==="√"){
+    dis.innerText+="√";
+    op1 = parseFloat(dis.textContent);
+
+  }
+  else{
   op1 = parseFloat(dis.textContent);
   dis.innerText = "";
   if(value==="%")
@@ -30,6 +38,8 @@ function handleOp(value) {
     var res=FactOp(op1);
     dis.innerText=res;
   }
+}
+  
 }
 
 function performOp() {
@@ -53,8 +63,30 @@ function performOp() {
     var res = op1 / op2;
     dis.innerText = res;
   }
+  if(operator==="√"){
+    op1 = parseFloat(dis.textContent.substring(1)); // Remove the square root symbol
+    var res = Math.sqrt(op1);
+    dis.innerText = "√" + op1 + " = " + res;
+  }
   
 }
+
+// function SquareRoot(value) {
+//   operator = value;
+//   var input = dis.textContent;
+//   op1 = parseFloat(input);
+
+//   if (isNaN(op1)) {
+//     dis.textContent = "Invalid Input";
+//   } else if (op1 < 0) {
+//     dis.textContent = "√" + input + " = NaN";
+//   } else {
+//     dis.textContent = "√" + input + " = " + Math.sqrt(op1);
+//   }
+// }
+
+
+
 function backOp(){
   var res=dis.textContent;
   res=res.slice(0,-1);
@@ -82,7 +114,11 @@ function Show() {
     handleOp(value);
   } else if (value === "AC") {
     clearDisplay();
-  } else {
+  } 
+  else if(value==="√"){
+    handleOp(value);
+  }
+  else {
     ShowNumber(value);
   }
 }
