@@ -38,6 +38,10 @@ function handleOp(value) {
     var res=FactOp(op1);
     dis.innerText=res;
   }
+  if(value==="∏"){
+    op1=3.1415926535897;
+    dis.innerText=op1;
+  }
 }
   
 }
@@ -67,6 +71,11 @@ function performOp() {
     op1 = parseFloat(dis.textContent.substring(1)); // Remove the square root symbol
     var res = Math.sqrt(op1);
     dis.innerText = "√" + op1 + " = " + res;
+  }
+  if(operator==="^"){
+    op2 = parseFloat(dis.textContent);
+    var res=Math.pow(op1,op2);
+    dis.innerText=op1 + "^" + op2 + "=" + res;
   }
   
 }
@@ -116,6 +125,12 @@ function Show() {
     clearDisplay();
   } 
   else if(value==="√"){
+    handleOp(value);
+  }
+  else if(value==="^"){
+    handleOp(value);
+  }
+  else if(value==="∏"){
     handleOp(value);
   }
   else {
