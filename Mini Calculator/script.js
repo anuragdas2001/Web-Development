@@ -53,12 +53,13 @@ function performOp() {
     var res = op1 / op2;
     dis.innerText = res;
   }
-  // if(operator==="!")
-  // {
-  //   op1=parseFloat(dis.textContent);
-  //   var res=FactOp(op1);
-  //   dis.innerText=res;
-  // }
+  
+}
+function backOp(){
+  var res=dis.textContent;
+  res=res.slice(0,-1);
+  dis.textContent=res;
+
 }
 function clearDisplay() {
   dis.innerText = "";
@@ -71,6 +72,9 @@ function Show() {
 
   if(value==="!"){
     handleOp(value);
+  }
+  else if(value==="backspace"){
+    backOp();
   }
   else if (value === "=") {
     performOp();
