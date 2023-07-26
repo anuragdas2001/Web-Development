@@ -1,5 +1,5 @@
 #calculator {
-  height: 500px;
+  height: 580px;
    width: 250px;
   background-color: #1d1c17;
   border: 1px solid rgb(4, 4, 4);
@@ -50,15 +50,16 @@
   align-items: center;
 }
 .AC{
-  background-color: #165037;
+  background-color: #7806068f;
 }
 .Equal{
-  background-color: #514700;
+  background-color: #11cc9a55;
 }
 /* .Symbol{
   margin-top: 3px;
 } */
 
 body{
-  background-color: rgb(26, 24, 24);
+  background-color: rgb(0, 0, 0);
 }
+
