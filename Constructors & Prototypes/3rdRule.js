@@ -10,8 +10,8 @@ var raj={
 
 var localAsk=raj.greet;
 
-console.log(localAsk);
-console.log(localAsk());
+// console.log(localAsk);
+// console.log(localAsk());
 
 
 console.log(localAsk.bind(raj)());

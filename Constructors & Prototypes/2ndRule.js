@@ -19,7 +19,8 @@ ask.apply(Anu);
 var raj={
     name:'raj',
     greet:function(){
-        console.log('Hello',this);
+        console.log('Hello',this.name);
+       
     }
 }
 
@@ -29,10 +30,10 @@ var raj={
 
 // localAsk();
 
-// var localGreet=raj.greet.bind(raj);
+var localGreet=raj.greet.bind(raj);
 
-// console.log(localGreet());
+console.log(localGreet());
 
-setTimeout(raj.greet.bind(raj),1000);
+// setTimeout(raj.greet.bind(raj),1000);
 
-
+// console.log(raj.greet.bind(raj)());
