@@ -1,0 +1,36 @@
+/* style.css */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+#boundary {
+    width: 500px;
+    height: 500px;
+    position: relative;
+    border: 2px solid black;
+    overflow: hidden;
+}
+
+.rod {
+    height: 13px;
+    width: 100px;
+    background-color: blue;
+    border-radius: 3px;
+    position: absolute;
+    /* cursor: grab; */
+    bottom: 0;
+}
+
+#ball {
+    width: 25px;
+    height: 25px;
+    background-color: rgb(233, 73, 24);
+    border-radius: 50%;
+    position: absolute;
+    animation: MoveBall 2s linear infinite;
+}
