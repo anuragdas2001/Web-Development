@@ -1,0 +1,67 @@
+body{
+    background-color: white;
+}
+
+.boundary{
+    height:800px;
+    width: 500px;
+    border: 3px solid rgb(3, 3, 3);
+    margin-top: 3.5rem;
+    margin-left: 25%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    position: relative;
+
+
+}
+.container{
+    position:absolute;
+}
+
+.profile{
+    margin-left:-14rem;
+    margin-top:2rem;
+    border-radius: 50%;
+    height:3rem;
+    width:3rem;
+
+}
+.greetings{
+    color: rgb(45, 135, 214);
+    margin-top:5rem;
+    margin-left: -12rem;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 500; 
+    /* font-size: xx-large; */
+    position: absolute;
+}
+
+.Addtask{
+    height:50px;
+    width: 100%;
+    margin-top:300px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    text-align: center;
+}
+#List{
+    margin-top: 20px;
+    margin-left:30px;
+
+}
+.completed {
+    /* margin-bottom: 100px; */
+    text-decoration:line-through;
+    /* font-weight:; */
+}
+.delete{
+    height: 1rem;
+    width: 1rem;
+    /* position: sticky; */
+    margin-top: -20px;
+    margin-left: 400px;
+    display: block;
+    
+    
+}
