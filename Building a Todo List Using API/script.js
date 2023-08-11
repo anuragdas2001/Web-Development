@@ -13,7 +13,7 @@ function addTaskToDOM(task) {
     <label for="${task.id}" class="${task.done ? "completed" : ""}">${
     task.text
   }</label>
-    <img src="trash-solid.svg"  class="delete" data-id="${task.id}" />
+    <img src="xmark-solid.svg"  class="delete" data-id="${task.id}" />
     
 
   `;
