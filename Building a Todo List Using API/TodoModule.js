@@ -1,9 +1,10 @@
+var TodoListApp=(function(){
 let tasks = [];
 const taskslist = document.getElementById("List");
 const addTaskInput = document.getElementById("add");
 let taskCounter = document.getElementById("tasks-counter");
 // console.log("Working Fine");
-
+var a=10;
 async function fetchTodos() {
   // GET request
   // fetch('https://jsonplaceholder.typicode.com/todos') //returns a promise
@@ -158,7 +159,16 @@ function InitialiseApp() {
   document.addEventListener("click", handleClickListener);
 }
 
+return{
+    // making this as public 
+    initialise : InitialiseApp,
+    a:a,
 
-InitialiseApp();
+}
 
 
+})();
+
+// var TodoListApp = (function (){
+
+// })
