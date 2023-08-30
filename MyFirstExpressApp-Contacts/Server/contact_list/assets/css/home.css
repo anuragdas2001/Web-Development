@@ -1,0 +1,62 @@
+body{
+    margin:0;
+    text-align: center;
+    font-family: sans-serif;
+}
+#page-heading{
+    text-align: center;
+    margin-top: 25px;
+    color: gray;
+}
+#contact-block{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#contacts{
+    height:5vh;
+    width: 30vw;
+    min-width: 300px;
+    position: relative;
+    background-color:rgb(12, 100, 231);
+    /* margin-left:12; */
+    margin-bottom:10px;
+    overflow: hidden;
+    border-radius: 5px;
+    transition: background-color 0.5s ease-in-out;
+
+}
+
+#name{
+    margin-left:-200px;
+    margin-bottom: auto;
+    /* padding-top: 2px; */
+}
+#phone{
+    margin-right: -150px;
+    margin-top: -20px;
+    margin-bottom: auto;
+
+    /* padding:auto; */
+}
+
+#contacts:hover{
+    background-color: grey;
+
+}
+.delete{
+    position: relative;
+    margin-top: -18px;
+    margin-right: -270px;
+    
+    /* display: flex;
+    justify-content: ;
+    align-items: end; */
+
+}
+.delete:hover{
+    /* background-color: aliceblue; */
+    transform: scale(1.2);
+    
+    /* box-shadow: inset; */
+}

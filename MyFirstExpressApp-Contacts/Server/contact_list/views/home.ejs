@@ -6,22 +6,32 @@
     <title>
         <%=title%>
     </title>
+   <script src="https://kit.fontawesome.com/17a2345116.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/home.css">
 </head>
 <body>
-    <h1>Contact List</h1>
+    <h1 id="page-heading">
+        <i class="fa-regular fa-address-book"></i>
+        My Contacts List</h1>
 
-    <div>
+    <div id="contact-block">
         <ul>
             <% for(let i of contact_List){ %> 
-                <li>
-                    <p><%= i.name %></p>
-                    <p><%= i.phoneno %></p>
-                </li>
-            
-            
-            
+                <li id="contacts">
+                    <div class="details">
+                    <p id="name"><%= i.name %></p>
+                    <p id="phone"><%= i.phoneno %></p>
+                    </div>
+                <div class="delete" action="/delete-contact" method="POST">
+                   <a href="/delete-contact/?id=<%=i._id%>" >
+                    <i class="fa-solid fa-xmark fa-sm"></i>
+                   </a>
+                    
+                </div>
+            </li>
            <% } %>
         </ul>
+        
     </div>
 
     <form action="/create-contact" method="POST">
@@ -30,5 +40,8 @@
 
         <button type="submit">Add Contact</button>
     </form>
+
+
+    <script type="text/javascript" src="/js/home.js"></script>
 </body>
 </html>
