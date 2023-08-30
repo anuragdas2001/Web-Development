@@ -93,7 +93,7 @@ app.get("/delete-contact", function (req, res) {
 
   Contact.findByIdAndDelete(id)
   .then((deletedCon)=>{
-    console.log("Delete Sucessfully");
+    console.log("Delete Sucessfully",deletedCon);
     return res.redirect("/");
       
   })
