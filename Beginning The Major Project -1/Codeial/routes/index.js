@@ -6,7 +6,8 @@ console.log('Router Loaded');
 
 
 router.get('/',homeController.home);
-
+router.use('/users',require('./users'));
+router.use('/settings',require('./settings'));
 
 //exports the router object from a Node.js module
 module.exports=router;
