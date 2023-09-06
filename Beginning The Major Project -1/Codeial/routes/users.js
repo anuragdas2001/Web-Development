@@ -7,8 +7,11 @@ const usercontroller = require('../controllers/users_controller');
 console.log('Users Loaded');
 
 router.get('/profile',usercontroller.profile);
-router.get('/Sign-up',usercontroller.signup);
-router.get('/Sign-in',usercontroller.signin);
+router.get('/sign-up',usercontroller.signup);
+router.get('/sign-in',usercontroller.signin);
 
+
+router.post('/create',usercontroller.create);
+router.get('/create_session',usercontroller.create_session);
 
 module.exports=router;
