@@ -1,12 +1,22 @@
 const User = require("../models/user");
+
 module.exports.profile = function (req, res) {
-  return res.render("users", {
+  if(req.isAuthenticated()){
+    return res.render("users_profile", {
     title: "Users",
   });
+  }
+
+  return res.redirect('/users/sign-in');
+  
 };
 
 //render the sign up page
 module.exports.signup = function (req, res) {
+  
+  if(req.isAuthenticated()){
+    return res.redirect('/users/profile');
+  }
   return res.render("user_sign_up", {
     title: "Codeial | Sign Up",
   });
@@ -15,6 +25,10 @@ module.exports.signup = function (req, res) {
 
 //render the sign in page
 module.exports.signin = function (req, res) {
+  
+  if(req.isAuthenticated()){
+    return res.redirect('/users/profile');
+  }
   return res.render("user_sign_in", {
     title: "Codeial | Sign In",
   });
@@ -31,15 +45,13 @@ module.exports.create = function (req, res) {
     .then((user) => {
       //if no User exists then create one
       if (!user) {
-        return User.create(req.body);
-        //User already exists
-      } else {
+         User.create(req.body);
+         return res.redirect("/users/sign-in");
+       
+      } //User already exists 
+      else {
         return Promise.reject("User already exists");
       }
-    })
-    //if User created then redirect to sign in page
-    .then(() => {
-      return res.redirect("/users/sign-in");
     })
     .catch((error) => {
       console.error("Error in signing up:", error);
@@ -48,31 +60,41 @@ module.exports.create = function (req, res) {
 };
 
 //sign in and create a session for the user
-module.exports.create_session = function (req, res) {
-  //find the user
+// module.exports.create_session = function (req, res) {
+//   //find the user
 
-  User.findOne({ email: req.body.email })
-    .then((user) => {
-      //handle user found
-      if (user) {
-        if (req.body.password != user.password) {
-          return res.redirect("back");
-        }
+//   User.findOne({ email: req.body.email })
+//     .then((user) => {
+//       //handle user found
+//       if (user) {
+//         if (req.body.password != user.password) {
+//           return res.redirect("back");
+//         }
 
-        //handle session creation
-        res.cookie("user_id", user.id);
-        return res.redirect("/users/profile");
-      }
+//         //handle session creation
+//         res.cookie("user_id", user.id);
+//         return res.redirect("/users/profile");
+//       }
 
-      //handle user not found
-      else {
-        return res.redirect("/users/sign-up");
-      }
-    })
-    .catch((error) => {
-      console.error("Error in signing in:", error);
-      return res.redirect("back");
-    });
+//       //handle user not found
+//       else {
+//         return res.redirect("/users/sign-up");
+//       }
+//     })
+//     .catch((error) => {
+//       console.error("Error in signing in:", error);
+//       return res.redirect("back");
+//     });
 
-  //handle password which don't match
+//   //handle password which don't match
+// };
+
+module.exports.create_session = function(req,res){
+    
+     return res.redirect('/');
+}
+
+module.exports.signout = function (req, res) {
+  console.log("You are about to be logged out !");
+  return res.redirect("/");
 };
