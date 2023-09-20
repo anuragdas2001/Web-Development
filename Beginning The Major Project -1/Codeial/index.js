@@ -4,6 +4,7 @@ const app = express();
 const port = 8000;
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
+const MongoStore = require('connect-mongo'); 
 // used for session cookie
 const session = require('express-session');
 const passport = require('passport');
@@ -36,7 +37,10 @@ app.use(session({
     resave: false,
     cookie: {
         maxAge: (1000 * 60 * 100)
-    }
+    },
+    store: MongoStore.create({
+        mongoUrl: 'mongodb://127.0.0.1:27017/codeial_development'
+      })
 }));
 
 app.use(passport.initialize());
