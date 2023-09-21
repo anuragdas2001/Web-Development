@@ -5,10 +5,21 @@ const port = 8000;
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
 const MongoStore = require('connect-mongo'); 
+// const sassMiddleware = require('sass');
+// const sassMiddleware = require('node-sass-middleware');
+
 // used for session cookie
 const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
+
+// app.use(sassMiddleware({
+//     src:'./assets/scss',
+//     dest: './assets/css',
+//     debug:true,
+//     outputStyle:'extended',
+//     prefix:'/css'
+// }));
 
 app.use(express.urlencoded());
 
@@ -39,7 +50,8 @@ app.use(session({
         maxAge: (1000 * 60 * 100)
     },
     store: MongoStore.create({
-        mongoUrl: 'mongodb://127.0.0.1:27017/codeial_development'
+        mongoUrl: 'mongodb://127.0.0.1:27017/codeial_development',
+        autoRemove:'disabled'
       })
 }));
 

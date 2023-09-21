@@ -1,0 +1,40 @@
+a {
+  color: inherit;
+  text-decoration: none;
+}
+#layout-header {
+  height: 5vh;
+  background-color: rgb(50, 146, 224);
+}
+#Brand-name {
+  color: white;
+  text-align: start;
+  padding: 10px;
+}
+#signup {
+  margin-top: -2vh;
+  margin-left: 80vw;
+  /* padding: 2px; */
+  list-style: none;
+}
+
+#signin {
+  margin-top: -4vh;
+  margin-left: 87vw;
+  /* padding: 2px; */
+  list-style: none;
+}
+
+#signout {
+  margin-top: -2vh;
+  margin-left: 80vw;
+  /* padding: 2px; */
+  list-style: none;
+}
+
+#user-profile {
+  margin-top: -4vh;
+  margin-left: 90vw;
+  /* padding: 2px; */
+  list-style: none;
+}

@@ -94,7 +94,13 @@ module.exports.create_session = function(req,res){
      return res.redirect('/');
 }
 
-module.exports.signout = function (req, res) {
-  console.log("You are about to be logged out !");
-  return res.redirect("/");
-};
+
+module.exports.destroySession = function(req, res) {
+  req.logout(function(err) {
+    if (err) { 
+      return next(err); 
+    }
+    console.log('You are now logged out');
+    return res.redirect('/');
+  });
+}

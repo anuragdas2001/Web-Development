@@ -7,14 +7,21 @@
         <%=title%>
     </title>
     <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
     <%- style %>
 </head>
 <body>
    
-    <%- include('_header'); %>
+    <main id="layout-header">
+        <%- include('_header'); %>
+    </main>
+    
 
-
-        <%- body %>
+    <main id="layout-main">
+         <%- body %>
+    </main>
+       
 
 
     <%- include('_footer'); %>

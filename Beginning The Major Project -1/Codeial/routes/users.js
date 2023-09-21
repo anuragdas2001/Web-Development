@@ -9,11 +9,11 @@ console.log('Users Loaded');
 router.get('/profile',passport.checkAuthentication,usercontroller.profile);
 router.get('/sign-up',usercontroller.signup);
 router.get('/sign-in',usercontroller.signin);
-router.post('/sign-out',usercontroller.signout);
+
 
 router.post('/create',usercontroller.create);
 // router.post('/create-session',usercontroller.create_session);
-
+router.get('/sign-out',usercontroller.destroySession)
 //use passport as a middleware to authenticate
 router.post('/create-session',passport.authenticate(
     'local',

@@ -1,3 +1,24 @@
-<header>
-    Page Header
+<header id="Brand-name">
+  Codeial
+
+  <ul>
+    <% if (locals.user){ %>
+    <li id="user-profile">
+      <a href="/users/profile"> <%=user.name%> </a>
+    </li>
+    <li id="signout">
+      <a href="/users/sign-out">Sign Out</a>
+    </li>
+
+    <% }else{ %>
+    <li id="signin">
+      <a href="/users/sign-in">Sign In</a>
+    </li>
+
+    <li id="signup">
+      <a href="/users/sign-up">Sign Up</a>
+    </li>
+
+    <% } %>
+  </ul>
 </header>
