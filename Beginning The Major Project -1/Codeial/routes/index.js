@@ -9,5 +9,6 @@ router.get('/',homeController.home);
 router.use('/users',require('./users'));
 router.use('/settings',require('./settings'));
 router.use('/posts',require('./posts'));
+router.use('/comments',require('./comments'));
 //exports the router object from a Node.js module
 module.exports=router;
