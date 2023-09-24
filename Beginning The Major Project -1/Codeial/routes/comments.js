@@ -5,6 +5,6 @@ const Commentscontroller = require('../controllers/comments_controller');
 
 
 router.post('/create',passport.checkAuthentication,Commentscontroller.create);    
-
+router.get('/delete/:id',passport.checkAuthentication,Commentscontroller.delete);
 
 module.exports=router;

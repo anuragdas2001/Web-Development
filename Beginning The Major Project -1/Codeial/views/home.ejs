@@ -12,8 +12,8 @@
   <div id="post-list-container">
     <ul>
 
-        <% if(locals.user){ %>
-      <% for(post of posts){ %>
+        <% for(post of posts){ %>
+            <% if(locals.user){ %>
 
         <li>
             <p>
@@ -46,6 +46,11 @@
                        <% for(comment of post.comments) { %>
 
                         <p>
+                            <% if(locals.user.id == comment.user.id){ %>
+                                <small>
+                                    <a href="/comments/delete/<%=comment.id%>">X</a>
+                                </small>
+                                <% } %>
                             <small><%=comment.user.name%></small>
                             <br>
                             <%=comment.content%>
