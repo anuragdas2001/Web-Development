@@ -13,7 +13,6 @@ router.get('/sign-in',usercontroller.signin);
 
 router.post('/create',usercontroller.create);
 // router.post('/create-session',usercontroller.create_session);
-router.get('/sign-out',usercontroller.destroySession)
 //use passport as a middleware to authenticate
 router.post('/create-session',passport.authenticate(
     'local',
@@ -21,5 +20,9 @@ router.post('/create-session',passport.authenticate(
     failureRedirect: '/users/sign-in'},
     // failureFlash: true, // Enable flash messages for failures
     ),usercontroller.create_session);
+
+
+router.get('/sign-out',usercontroller.destroySession)
+
 
 module.exports=router;

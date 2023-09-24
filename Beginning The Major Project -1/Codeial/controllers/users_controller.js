@@ -1,3 +1,4 @@
+const { Error } = require("mongoose");
 const User = require("../models/user");
 
 module.exports.profile = function (req, res) {
@@ -96,12 +97,14 @@ module.exports.create_session = function(req,res){
 
 
 module.exports.destroySession = function(req, res) {
-  req.logout(function(err) {
-    if (err) { 
-      return next(err); 
-    }
-    console.log('You are now logged out');
-    return res.redirect('/');
+  console.log('You are about to be logged out!');
+  req.logout(function(error) {
+      if (error) {
+          // Handle the error, e.g., by sending an error response
+          console.log('Error in logging Out please try again later',error);
+      }
+      return res.redirect('/');
   });
 }
+
 
