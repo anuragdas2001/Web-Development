@@ -103,3 +103,19 @@ module.exports.destroySession = function (req, res) {
     return res.redirect("/");
   });
 };
+
+module.exports.Update = function(req,res){
+  if(req.user.id == req.params.id){
+ 
+    User.findByIdAndUpdate(req.params.id,req.body).then((user)=>{
+      console.log('Profile Updated Successfully');
+      return res.redirect('back');
+    })
+    .catch((error)=>{
+      console.log('Could not Update Profile',error);
+      return res.status(401).send('Unauthorized')
+    })
+
+
+  }
+}
