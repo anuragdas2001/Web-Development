@@ -1,6 +1,6 @@
 #layout-footer {
   height: 10vh;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
