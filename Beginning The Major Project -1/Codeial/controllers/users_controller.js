@@ -2,21 +2,22 @@ const { Error } = require("mongoose");
 const User = require("../models/user");
 
 module.exports.profile = function (req, res) {
-  if(req.isAuthenticated()){
-    return res.render("users_profile", {
-    title: "Users",
-  });
+  if (req.isAuthenticated()) {
+    User.findById(req.params.id).then((user) => {
+      return res.render("users_profile", {
+        title: "Users",
+        profile_user: user,
+      });
+    });
+  } else {
+    return res.redirect("/users/sign-in");
   }
-
-  return res.redirect('/users/sign-in');
-  
 };
 
 //render the sign up page
 module.exports.signup = function (req, res) {
-  
-  if(req.isAuthenticated()){
-    return res.redirect('/users/profile');
+  if (req.isAuthenticated()) {
+    return res.redirect("/users/profile");
   }
   return res.render("user_sign_up", {
     title: "Codeial | Sign Up",
@@ -26,9 +27,8 @@ module.exports.signup = function (req, res) {
 
 //render the sign in page
 module.exports.signin = function (req, res) {
-  
-  if(req.isAuthenticated()){
-    return res.redirect('/users/profile');
+  if (req.isAuthenticated()) {
+    return res.redirect("/users/profile");
   }
   return res.render("user_sign_in", {
     title: "Codeial | Sign In",
@@ -46,10 +46,9 @@ module.exports.create = function (req, res) {
     .then((user) => {
       //if no User exists then create one
       if (!user) {
-         User.create(req.body);
-         return res.redirect("/users/sign-in");
-       
-      } //User already exists 
+        User.create(req.body);
+        return res.redirect("/users/sign-in");
+      } //User already exists
       else {
         return Promise.reject("User already exists");
       }
@@ -90,21 +89,17 @@ module.exports.create = function (req, res) {
 //   //handle password which don't match
 // };
 
-module.exports.create_session = function(req,res){
-    
-     return res.redirect('/');
-}
+module.exports.create_session = function (req, res) {
+  return res.redirect("/");
+};
 
-
-module.exports.destroySession = function(req, res) {
-  console.log('You are about to be logged out!');
-  req.logout(function(error) {
-      if (error) {
-          // Handle the error, e.g., by sending an error response
-          console.log('Error in logging Out please try again later',error);
-      }
-      return res.redirect('/');
+module.exports.destroySession = function (req, res) {
+  console.log("You are about to be logged out!");
+  req.logout(function (error) {
+    if (error) {
+      // Handle the error, e.g., by sending an error response
+      console.log("Error in logging Out please try again later", error);
+    }
+    return res.redirect("/");
   });
-}
-
-
+};
