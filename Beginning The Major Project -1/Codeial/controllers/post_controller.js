@@ -1,69 +1,35 @@
 const Post = require("../models/post");
-const Comment = require('../models/comment');
-module.exports.create_post = function (req, res) {
-  Post.create({
-    content: req.body.content,
-    user: req.user._id,
-  })
-    .then((post) => {
-      return res.redirect("back");
-    })
-    .catch((error) => {
-      console.log("Error in Creating a post !", error);
-      return res.redirect("back");
+const Comment = require("../models/comment");
+module.exports.create_post = async function (req, res) {
+  try {
+    await Post.create({
+      content: req.body.content,
+      user: req.user._id,
     });
+    return res.redirect("back");
+  } catch (error) {
+    console.log("Error in Creating a post !", error);
+    return;
+  }
 };
 
-// module.exports.delete = function(req,res){
-    
-//        Post.findById(req.params.id).then((post)=>{
-//         // .id means converting the object id into string
-//         if(post.user == req.user.id){
-//             post.remove();
-//             Comment.deleteMany({post:req.params.id}).then(()=>{
-//                 console.log('Comments Deleted Successfully');
-//                 return res.redirect('back');
-//             })
-//             .catch((error)=>{
-//                 console.log('Error in deleting Comments',error);
-//                 return res.redirect('/');
-//             })
-//         }
-//         else{
-//             return res.redirect('back');
-//         }
-//     })
+module.exports.delete = async function (req, res) {
+  try {
+    const post = await Post.findById(req.params.id);
 
-// }
+    if (post.user == req.user.id) {
+      await post.deleteOne();
+      console.log("Post Deleted Successfully");
 
-module.exports.delete = function(req, res) {
-    Post.findById(req.params.id)
-      .then((post) => {
-        if (!post) {
-          // Handle the case where the post is not found
-          return res.redirect('back');
-        }
-  
-        if (post.user == req.user.id) {
-          return post.deleteOne()
-            .then(() => {
-              console.log('Post and Comments Deleted Successfully');
-              return Comment.deleteMany({ post: req.params.id });
-            })
-            .then(() => {
-              return res.redirect('back');
-            })
-            .catch((error) => {
-              console.error('Error in deleting Post and Comments', error);
-              return res.redirect('/');
-            });
-        } else {
-          return res.redirect('back');
-        }
-      })
-      .catch((error) => {
-        console.error('Error in deleting post:', error);
-        return res.redirect('/');
-      });
-  };
-  
+      await Comment.deleteMany({ post: req.params.id });
+      console.log("Comments Deleted Successfully");
+
+      return res.redirect("back");
+    } else {
+      return res.redirect("back");
+    }
+  } catch (error) {
+    console.error("Error deleting post and comments: ", error);
+    return res.redirect("/");
+  }
+};
