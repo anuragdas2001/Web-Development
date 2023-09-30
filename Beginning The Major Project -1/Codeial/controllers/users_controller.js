@@ -90,6 +90,7 @@ module.exports.create = function (req, res) {
 // };
 
 module.exports.create_session = function (req, res) {
+  req.flash('success','Logged in Successfully');
   return res.redirect("/");
 };
 
@@ -100,6 +101,8 @@ module.exports.destroySession = function (req, res) {
       // Handle the error, e.g., by sending an error response
       console.log("Error in logging Out please try again later", error);
     }
+    req.flash('warning','You have Logged Out !');
+
     return res.redirect("/");
   });
 };
