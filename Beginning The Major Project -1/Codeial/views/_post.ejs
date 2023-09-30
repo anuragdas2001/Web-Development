@@ -1,17 +1,17 @@
-<% if(locals.user){ %>
 
-    <li>
+
+    <li id="post-<%=post.id%>">
         <p>
           <% if(locals.user.id == post.user.id){ %>
         <small>
-            <a href="/posts/delete/<%=post.id%>">X</a>
+            <a class="delete-post-button" href="/posts/delete/<%=post.id%>">X</a>
         </small>
         <% } %>
       <small><%=post.user.name%></small>
       <br />
       <%=post.content%>
     </p>
-    <% } %>
+    
     
 
     <div class="post-comments">
