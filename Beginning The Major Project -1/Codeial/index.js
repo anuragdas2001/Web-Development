@@ -14,13 +14,14 @@ const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
 const flash = require('connect-flash');
 const customMWare = require('./config/middleware');
-const multer = require('multer');
 
 app.use(express.urlencoded());
 
 app.use(cookieParser());
 
 app.use(express.static('./assets'));
+//make the uploads path available to the browser
+app.use('/uploads',express.static(__dirname + '/uploads'));
 
 app.use(expressLayouts);
 // extract style and scripts from sub pages into the layout
