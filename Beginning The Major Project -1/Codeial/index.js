@@ -14,7 +14,7 @@ const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
 const flash = require('connect-flash');
 const customMWare = require('./config/middleware');
-
+const multer = require('multer');
 
 app.use(express.urlencoded());
 

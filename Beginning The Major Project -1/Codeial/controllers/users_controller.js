@@ -1,4 +1,3 @@
-const { Error } = require("mongoose");
 const User = require("../models/user");
 
 module.exports.profile = function (req, res) {
@@ -60,35 +59,6 @@ module.exports.create = function (req, res) {
 };
 
 //sign in and create a session for the user
-// module.exports.create_session = function (req, res) {
-//   //find the user
-
-//   User.findOne({ email: req.body.email })
-//     .then((user) => {
-//       //handle user found
-//       if (user) {
-//         if (req.body.password != user.password) {
-//           return res.redirect("back");
-//         }
-
-//         //handle session creation
-//         res.cookie("user_id", user.id);
-//         return res.redirect("/users/profile");
-//       }
-
-//       //handle user not found
-//       else {
-//         return res.redirect("/users/sign-up");
-//       }
-//     })
-//     .catch((error) => {
-//       console.error("Error in signing in:", error);
-//       return res.redirect("back");
-//     });
-
-//   //handle password which don't match
-// };
-
 module.exports.create_session = function (req, res) {
   req.flash('success','Logged in Successfully');
   return res.redirect("/");
@@ -107,18 +77,33 @@ module.exports.destroySession = function (req, res) {
   });
 };
 
-module.exports.Update = function(req,res){
+module.exports.Update = async function(req,res){
   if(req.user.id == req.params.id){
- 
-    User.findByIdAndUpdate(req.params.id,req.body).then((user)=>{
-      console.log('Profile Updated Successfully');
-      return res.redirect('back');
-    })
-    .catch((error)=>{
-      console.log('Could not Update Profile',error);
-      return res.status(401).send('Unauthorized')
-    })
 
+    try {
+      let user = await User.findById(req.params.id);
+      User.uploadedAvatar(req,res,function(error){
+        if(error){
+          console.log('***Multer Error',error);
+        }
+        // console.log(req.file);
+        user.name=req.body.name;
+        user.email=req.body.email;
+
+        if(req.file){
+          //this is saving the path of the uploaded file into the avatar field in the user
+          user.avatar = User.avatarPath + '/' + req.file.filename;
+        }
+        user.save();
+        console.log('Profile Updated Successfully');
+        req.flash('success','Profile Updated Successfully');
+        return res.redirect('back');
+      });
+    } catch (error) {
+      console.log('Could not Update Profile', error);
+      req.flash('error',error);
+      return res.redirect("back");
+    }
 
   }
 }
