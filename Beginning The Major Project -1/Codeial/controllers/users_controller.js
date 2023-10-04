@@ -1,6 +1,6 @@
 const User = require("../models/user");
-const fs = require('fs'); //file system
-const path = require('path');
+const fs = require("fs"); //file system
+const path = require("path");
 module.exports.profile = function (req, res) {
   if (req.isAuthenticated()) {
     User.findById(req.params.id).then((user) => {
@@ -61,7 +61,7 @@ module.exports.create = function (req, res) {
 
 //sign in and create a session for the user
 module.exports.create_session = function (req, res) {
-  req.flash('success','Logged in Successfully');
+  req.flash("success", "Logged in Successfully");
   return res.redirect("/");
 };
 
@@ -72,44 +72,41 @@ module.exports.destroySession = function (req, res) {
       // Handle the error, e.g., by sending an error response
       console.log("Error in logging Out please try again later", error);
     }
-    req.flash('warning','You have Logged Out !');
+    req.flash("warning", "You have Logged Out !");
 
     return res.redirect("/");
   });
 };
 
-module.exports.Update = async function(req,res){
-  if(req.user.id == req.params.id){
-
+module.exports.Update = async function (req, res) {
+  if (req.user.id == req.params.id) {
     try {
       let user = await User.findById(req.params.id);
-      User.uploadedAvatar(req,res,function(error){
-        if(error){
-          console.log('***Multer Error',error);
+      User.uploadedAvatar(req, res, function (error) {
+        if (error) {
+          console.log("***Multer Error", error);
         }
         // console.log(req.file);
-        user.name=req.body.name;
-        user.email=req.body.email;
+        user.name = req.body.name;
+        user.email = req.body.email;
 
-        if(req.file){
-
-          if(user.avatar){
-            fs.unlinkSync(path.join(__dirname,'..',user.avatar));
+        if (req.file) {
+          if (user.avatar) {
+            fs.unlinkSync(path.join(__dirname, "..", user.avatar));
           }
 
           //this is saving the path of the uploaded file into the avatar field in the user
-          user.avatar = User.avatarPath + '/' + req.file.filename;
+          user.avatar = User.avatarPath + "/" + req.file.filename;
         }
         user.save();
-        console.log('Profile Updated Successfully');
-        req.flash('success','Profile Updated Successfully');
-        return res.redirect('back');
+        console.log("Profile Updated Successfully");
+        req.flash("success", "Profile Updated Successfully");
+        return res.redirect("back");
       });
     } catch (error) {
-      console.log('Could not Update Profile', error);
-      req.flash('error',error);
+      console.log("Could not Update Profile", error);
+      req.flash("error", error);
       return res.redirect("back");
     }
-
   }
-}
+};
