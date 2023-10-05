@@ -6,24 +6,29 @@ const User = require('../models/user');
 
 
 let opts={
-    jwtFromRequest : ExtractJWT.fromAuthHeaderAsBearerToken,
+    jwtFromRequest : ExtractJWT.fromAuthHeaderAsBearerToken(),
     secretOrKey : 'secret'
 }
 
-passport.use(new JWTStrategy(opts, function(jwt_payload, done) {
+passport.use(new JWTStrategy(opts, async function(jwt_payload, done) {
 
-    User.findOne({id: jwt_payload.sub}, function(err, user) {
-        if (err) {
-            return done(err, false);
-        }
-        if (user) {
-            return done(null, user);
-        } else {
-            return done(null, false);
-            // or you could create a new account
-        }
-    });
-}));
+    try {
+  
+      const user = await User.findById(jwt_payload._id);
+  
+      if(!user) {
+        return done(null, false);
+      }
+  
+      return done(null, user);
+  
+    } catch(error) {
+  
+      return done(error, false);
+    
+    }
+  
+  }));
 
 
 module.exports = passport;
