@@ -13,9 +13,9 @@ const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
 const passportJwt = require('./config/passport-jwt-strategy');
+const passportgoogle = require('./config/passport-google-oauth2-strategy');
 const flash = require('connect-flash');
 const customMWare = require('./config/middleware');
-
 app.use(express.urlencoded());
 
 app.use(cookieParser());
