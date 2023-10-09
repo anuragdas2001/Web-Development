@@ -2,7 +2,7 @@
 
 <img src="<%=user.avatar%>" alt="<%=user.name%>" width="100">
 
-<!-- if user matches the nshow the form  -->
+<!-- if user matches then show the form  -->
 <%if(user.id == profile_user.id){%> 
     
     <form action="/users/Update/<%=profile_user.id%>" enctype="multipart/form-data" method="POST">
