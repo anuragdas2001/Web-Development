@@ -1,11 +1,16 @@
 const Post = require("../models/post");
 const Comment = require("../models/comment");
+const postMailer = require('../mailers/posts_mailer');
 module.exports.create_post = async function (req, res) {
   try {
    let post = await Post.create({
       content: req.body.content,
       user: req.user._id,
     });
+    await post.save();
+    // Populate the 'user' field of the comment with 'name' and 'email'
+    post = await Post.populate(post, { path: 'user', select: 'name email' });
+    postMailer.newPost(post);
     if(req.xhr){
       return res.status(200).json({
         data:{
@@ -15,6 +20,7 @@ module.exports.create_post = async function (req, res) {
       })
     }
     req.flash('success','Post Published!');
+   
     return res.redirect("back");
   } catch (error) {
     console.log("Error in Creating a post !", error);

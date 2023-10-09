@@ -20,7 +20,7 @@ module.exports.create = async function(req, res) {
       // Populate the 'user' field of the comment with 'name' and 'email'
       comment = await Comment.populate(comment, { path: 'user', select: 'name email' });
 
-      // You can use commentsMailer.newComment(comment) here if needed
+      
       commentsMailer.newComment(comment);
       if (req.xhr) {
         return res.status(200).json({
