@@ -110,3 +110,34 @@ module.exports.Update = async function (req, res) {
     }
   }
 };
+
+module.exports.reset  = function(req,res){
+
+  if(req.isAuthenticated()){
+      return res.render("reset_form", {
+          title: "Password Reset",
+          user:req.user
+        });
+  }
+  return res.redirect("/users/sign-in");
+}
+module.exports.Update_Password = async function(req,res){
+  if(req.isAuthenticated()) {
+    const user = await User.findById(req.params.id);
+
+    if(!user) {
+      return res.redirect('/users/signin');
+    }
+
+    if(req.body.password == req.body.confirm_password) {
+      // user.password = req.body.password;
+      await User.findByIdAndUpdate(req.params.id,{
+        password:req.body.password
+      });
+      await user.save();
+      return res.redirect('/users/sign-out');
+    } 
+  } else {
+    return res.redirect('/users/signin');
+  }
+}

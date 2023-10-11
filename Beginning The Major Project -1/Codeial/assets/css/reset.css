@@ -1,0 +1,26 @@
+#reset-form{
+    height:520px;
+    margin:10px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+}
+#password{
+   
+    height:20px;
+    width:300px;
+    margin:10px;
+   
+   
+}
+#confirm-password{
+    height:20px;
+    width:300px;
+    margin:10px;
+}
+#reset{
+    
+ margin-left:40%;
+    
+}
