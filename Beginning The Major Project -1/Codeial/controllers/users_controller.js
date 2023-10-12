@@ -1,11 +1,6 @@
 const User = require("../models/user");
 const fs = require("fs"); //file system
 const path = require("path");
-
-const commentsMailer = require("../mailers/reset_password");
-
-const comments_email_mailer = require("../workers/reset_email_worker");
-const queue = require("../config/kue");
 module.exports.profile = function (req, res) {
   if (req.isAuthenticated()) {
     User.findById(req.params.id).then((user) => {
@@ -116,69 +111,33 @@ module.exports.Update = async function (req, res) {
   }
 };
 
-module.exports.reset = async function (req, res) {
-  if (req.isAuthenticated()) {
-    try {
-      // Replace 'comment' with the actual data you want to send in the email
-      // For a reset password request, you may want to send user-specific data
-      const user = req.user; // Assuming you have access to the authenticated user's data
-      // You may want to fetch additional user data, such as email, if it's not available in req.user
+module.exports.reset  = function(req,res){
 
-      // Create a job to send the reset email
-      const jobData = {
-        user: {
-          name: user.name, // User's name
-          email: user.email, // User's email address
-        },
-        // Other data specific to the reset email
-      };
-
-      const job = queue.create("reset", jobData).save(function (error) {
-        if (error) {
-          console.log("Error in sending to the Queue", error);
-          return res.status(500).json({ message: "Internal Server Error" });
-        }
-        console.log("Job enqueued", job.id);
-        // return res.redirect("/users/sign-in");
-        return res.render("reset_form", {
-          title: "Reset-Password",
-          user: user,
+  if(req.isAuthenticated()){
+      return res.render("reset_form", {
+          title: "Password Reset",
+          user:req.user
         });
-      });
-    } catch (err) {
-      console.error("Error in processing reset request", err);
-      return res.status(500).json({ message: "Internal Server Error" });
-    }
-  } else {
-    return res.redirect("/users/sign-in");
   }
-};
-
-module.exports.Update_Password = async function (req, res) {
-  if (req.isAuthenticated()) {
+  return res.redirect("/users/sign-in");
+}
+module.exports.Update_Password = async function(req,res){
+  if(req.isAuthenticated()) {
     const user = await User.findById(req.params.id);
 
-    if (!user) {
-      return res.redirect("/users/signin");
+    if(!user) {
+      return res.redirect('/users/signin');
     }
 
-    if (req.body.password == req.body.confirm_password) {
+    if(req.body.password == req.body.confirm_password) {
       // user.password = req.body.password;
-      await User.findByIdAndUpdate(req.params.id, {
-        password: req.body.password,
+      await User.findByIdAndUpdate(req.params.id,{
+        password:req.body.password
       });
       await user.save();
-      return res.redirect("/users/sign-out");
-    }
+      return res.redirect('/users/sign-out');
+    } 
   } else {
-    return res.redirect("/users/signin");
+    return res.redirect('/users/signin');
   }
-};
-
-module.exports.forgot_password = function(req,res){
-  
-    return res.render('forgot_password',{
-    title:'Forgot_Password',
-  });
-  
 }
