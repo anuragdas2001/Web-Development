@@ -26,9 +26,7 @@ router.get('/sign-out',usercontroller.destroySession)
 
 router.get('/auth/google',passport.authenticate('google',{scope:['profile','email']}));
 router.get('/auth/google/callback',passport.authenticate('google',{failureRedirect:'/users/sign-in'}),usercontroller.create_session);
-router.get('/reset-password',passport.checkAuthentication,usercontroller.reset);
+router.get('/reset-password',passport.checkAuthentication,usercontroller.Reset_Form);
 router.post('/reset-password/:id',passport.checkAuthentication,usercontroller.Update_Password);
-router.post('/Forgot_password',usercontroller.Forgot_password);
-router.post('/reset_Forgot_Password',usercontroller.reset_Forgot_Password);
-// router.post('/reset-link',usercontroller.reset_link);
+
 module.exports=router;
