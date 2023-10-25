@@ -1,10 +1,10 @@
 const User = require("../models/user");
 const fs = require("fs"); //file system
 const path = require("path");
+const queue = require('../config/kue');
 const reset_forgot_password_mailer = require('../mailers/Forgot_Password');
 
 const reset_forgot_password_worker = require('../workers/reset_Forgot_password_worker');
-const queue = require('../config/kue');
 module.exports.profile = function (req, res) {
   if (req.isAuthenticated()) {
     User.findById(req.params.id).then((user) => {
@@ -115,9 +115,50 @@ module.exports.Update = async function (req, res) {
   }
 };
 
-module.exports.submitResetForm = async function(req, res) {
-  console.log('Inside submitResetForm');
+module.exports.reset  = function(req,res){
+
+  if(req.isAuthenticated()){
+      return res.render("reset_form", {
+          title: "Password Reset",
+          user:req.user
+        });
+  }
+  return res.redirect("/users/sign-in");
+}
+module.exports.Update_Password = async function(req,res){
+  if(req.isAuthenticated()) {
+    const user = await User.findById(req.params.id);
+
+    if(!user) {
+      return res.redirect('/users/signin');
+    }
+
+    if(req.body.password == req.body.confirm_password) {
+      // user.password = req.body.password;
+      await User.findByIdAndUpdate(req.params.id,{
+        password:req.body.password
+      });
+      await user.save();
+      return res.redirect('/users/sign-out');
+    } 
+  } else {
+    return res.redirect('/users/sign-in');
+  }
+}
+
+module.exports.Forgot_password = function(req,res){
+    return res.render('Forgot_password',{
+      title:'Forgot-Password',
+      // user:req.user.emai
+    })
+}
+
+module.exports.reset_Forgot_Password = async function(req,res){
+
   const { email } = req.body;
+
+  // Lookup user by email
+
   const user = await User.findOne({email});
 
   // Create a job to send the reset email
@@ -139,44 +180,10 @@ module.exports.submitResetForm = async function(req, res) {
   });
   req.flash('success','check your mail');
 
-  // return res.status(200).json({
-  //   message: 'check your mail',
-  // });
-  return res.render('forgot_password_reset_form', {
-    title: 'Reset-Link',
-    user: user
-});
+  return res.status(200).json({
+    message: 'check your mail',
+  });
 
-}
 
-module.exports.Update_Password = async function(req,res){
-  if(req.isAuthenticated()) {
-    const user = await User.findById(req.params.id);
+};
 
-    if(!user) {
-      return res.redirect('/users/signin');
-    }
-
-    if(req.body.password == req.body.confirm_password) {
-      // user.password = req.body.password;
-      await User.findByIdAndUpdate(req.params.id,{
-        password:req.body.password
-      });
-      await user.save();
-      return res.redirect('/users/sign-in');
-    } 
-  } else {
-    return res.redirect('/users/sign-in');
-  }
-}
-
-module.exports.Reset_Form  = function(req,res){
-
-  if(req.isAuthenticated()){
-      return res.render("reset_form", {
-          title: "Password Reset",
-          user:req.user
-        });
-  }
-  return res.redirect("/users/sign-in");
-}
