@@ -1,10 +1,6 @@
 const User = require("../models/user");
 const fs = require("fs"); //file system
 const path = require("path");
-const queue = require('../config/kue');
-const reset_forgot_password_mailer = require('../mailers/Forgot_Password');
-
-const reset_forgot_password_worker = require('../workers/reset_Forgot_password_worker');
 module.exports.profile = function (req, res) {
   if (req.isAuthenticated()) {
     User.findById(req.params.id).then((user) => {
@@ -142,48 +138,6 @@ module.exports.Update_Password = async function(req,res){
       return res.redirect('/users/sign-out');
     } 
   } else {
-    return res.redirect('/users/sign-in');
+    return res.redirect('/users/signin');
   }
 }
-
-module.exports.Forgot_password = function(req,res){
-    return res.render('Forgot_password',{
-      title:'Forgot-Password',
-      // user:req.user.emai
-    })
-}
-
-module.exports.reset_Forgot_Password = async function(req,res){
-
-  const { email } = req.body;
-
-  // Lookup user by email
-
-  const user = await User.findOne({email});
-
-  // Create a job to send the reset email
-  // const jobData = {
-  //   user: {
-  //     name: user.name, // User's name
-  //     email: user.email, // User's email address
-  //   },
-  //   // Other data specific to the reset email
-  // };
-
-  const job = queue.create('reset', user).save(function (error) {
-    if (error) {
-      console.log("Error in sending to the Queue", error);
-      return res.status(500).json({ message: "Internal Server Error" });
-    }
-    console.log('Job enqueued', job.id);
-    // return res.redirect("/users/sign-in");
-  });
-  req.flash('success','check your mail');
-
-  return res.status(200).json({
-    message: 'check your mail',
-  });
-
-
-};
-
