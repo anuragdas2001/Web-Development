@@ -1,5 +1,6 @@
 const Post = require("../models/post");
 const Comment = require("../models/comment");
+const Likes = require('../models/like');
 const postMailer = require('../mailers/posts_mailer');
 const queue = require('../config/kue');
 
@@ -45,6 +46,12 @@ module.exports.delete = async function (req, res) {
     const post = await Post.findById(req.params.id);
    
     if (post.user == req.user.id) {
+
+      await Likes.deleteMany({likeable:post,onModel:'Post'});
+      // await Like.deleteMany({_id:{$in:post.comments}});
+      await Likes.deleteMany({likeable:comment,onModel:'Comment'});
+
+
       await post.deleteOne();
       console.log("Post Deleted Successfully");
 

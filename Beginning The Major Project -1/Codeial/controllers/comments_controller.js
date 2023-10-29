@@ -1,6 +1,6 @@
 const Comment = require("../models/comment");
 const Post = require("../models/post");
-
+const Likes = require('../models/like');
 const commentsMailer = require('../mailers/comments_mailer');
 
 const comments_email_mailer = require('../workers/comment_email_worker');
@@ -57,7 +57,7 @@ module.exports.create = async function(req, res) {
 
     try {
       let comment = await Comment.findById(req.params.id);
-  
+
       if (!comment) {
         return res.status(404).json({
           message: 'Comment not found',
@@ -68,10 +68,12 @@ module.exports.create = async function(req, res) {
         let postId = comment.post;
   
         await Comment.findByIdAndRemove(req.params.id); // Remove the comment
-  
+        
         // Remove the comment ID from the post's 'comments' array
         await Post.findByIdAndUpdate(postId, { $pull: { comments: req.params.id } });
-  
+
+        await Likes.deleteMany({likeable:comment,onModel:'Comment'});
+
         // Send a response indicating success
         if (req.xhr) {
           return res.status(200).json({
