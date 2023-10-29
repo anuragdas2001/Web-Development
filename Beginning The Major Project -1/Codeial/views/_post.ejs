@@ -15,17 +15,14 @@
     <br>
 
     <small>
-        <% if(locals.user) { %>
-            <a class="toggle-like-button" data-likes="<%=post.likes.length%>" href="/likes/toggle/?id=<%=post._id%>&type=Post">
-                <%= post.likes.length %> Likes
+        <% if (locals.user){ %>
+            <a class="toggle-like-button" data-likes="<%= post.likes.length %>" href="/likes/toggle/?id=<%=post._id%>&type=Post">
+                    <%= post.likes.length %> Likes
             </a>
-
-            <% } else { %>
-
-                <%= post.likes.length %>  Likes
-
-                <% } %>
-     </small>
+        <% }else{ %>
+            <%= post.likes.length %> Likes
+        <% } %>
+    </small>
 
 
 
@@ -36,7 +33,7 @@
 
     <div class="post-comments">
         <% if(locals.user){ %>
-            <form action="/comments/create" id="new-comment-form" method="POST">
+            <form action="/comments/create" id="post-<%= post._id %>-comments-form" method="POST">
                 <input type="text" name="content" placeholder="Type your comment" required>
                 <input type="hidden" name="post" value="<%=post._id%>">
                 <input type="submit" value="Add Comment">
@@ -45,15 +42,14 @@
 
             <% } %>
 
-            <div class="comments-list">
+            <div class="post-comments-list">
                 <ul id="post-comments-<%=post._id%>">
-                    <% if(locals.user){ %>
-                   <% for(comment of post.comments) { %>
+                    <% for (comment of post.comments){%>
 
                         <%- include('_comment') -%>
-
-                    <% } %>
-                    <% } %>
+                        
+                    
+                    <%} %>
                 </ul>
             </div>
 

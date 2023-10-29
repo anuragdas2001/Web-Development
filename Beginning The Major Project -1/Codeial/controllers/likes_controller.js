@@ -29,7 +29,7 @@ module.exports.togglelike = async function (req, res) {
         deleted = true;
     } else {
       //else make a new like
-      let newLike = Like.create({
+      let newLike = await Like.create({
       user:req.user._id,
       likeable: req.query.id,
       onModel: req.query.type
@@ -37,7 +37,7 @@ module.exports.togglelike = async function (req, res) {
       likeable.likes.push(newLike._id);
       // likeable.likes.push(newLike);
       likeable.save();
-      // deleted = false;
+      deleted = false;
     }
 
     return res.json(200, {

@@ -48,8 +48,8 @@ module.exports.delete = async function (req, res) {
     if (post.user == req.user.id) {
 
       await Likes.deleteMany({likeable:post,onModel:'Post'});
-      // await Like.deleteMany({_id:{$in:post.comments}});
-      await Likes.deleteMany({likeable:comment,onModel:'Comment'});
+      await Likes.deleteMany({_id:{$in:post.comments}});
+      // await Likes.deleteMany({likeable:comment,onModel:'Comment'});
 
 
       await post.deleteOne();
