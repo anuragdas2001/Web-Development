@@ -1,6 +1,14 @@
 const User = require("../models/user");
 const fs = require("fs"); //file system
 const path = require("path");
+const nodeMailer = require("../config/nodemailer");
+const randomstring = require("randomstring");
+const queue = require("../config/kue");
+
+const Forgot_Password_Mailer = require("../mailers/Forgot_Password");
+
+const reset_email_worker = require("../workers/reset_email_worker");
+
 module.exports.profile = function (req, res) {
   if (req.isAuthenticated()) {
     User.findById(req.params.id).then((user) => {
@@ -111,33 +119,113 @@ module.exports.Update = async function (req, res) {
   }
 };
 
-module.exports.reset  = function(req,res){
-
-  if(req.isAuthenticated()){
-      return res.render("reset_form", {
-          title: "Password Reset",
-          user:req.user
-        });
+module.exports.reset = function (req, res) {
+  if (req.isAuthenticated()) {
+    return res.render("reset_form", {
+      title: "Password Reset",
+      user: req.user,
+    });
   }
   return res.redirect("/users/sign-in");
-}
-module.exports.Update_Password = async function(req,res){
-  if(req.isAuthenticated()) {
+};
+module.exports.Update_Password = async function (req, res) {
+  if (req.isAuthenticated()) {
     const user = await User.findById(req.params.id);
 
-    if(!user) {
-      return res.redirect('/users/signin');
+    if (!user) {
+      return res.redirect("/users/signin");
     }
 
-    if(req.body.password == req.body.confirm_password) {
+    if (req.body.password == req.body.confirm_password) {
       // user.password = req.body.password;
-      await User.findByIdAndUpdate(req.params.id,{
-        password:req.body.password
+      await User.findByIdAndUpdate(req.params.id, {
+        password: req.body.password,
       });
       await user.save();
-      return res.redirect('/users/sign-out');
-    } 
+      return res.redirect("/users/sign-out");
+    }
   } else {
-    return res.redirect('/users/signin');
+    return res.redirect("/users/signin");
+  }
+};
+
+module.exports.ForgotPassword = async function(req, res) {
+
+  try {
+
+    const email = req.body.email;
+
+    console.log("hello");
+
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(200).json({
+        message: "User does not exist",
+        success: true
+      });
+    }
+
+    const randomString = randomstring.generate();
+    const token = randomString;
+    const name = user.name;
+
+    await User.updateOne({ email }, { $set: { token }});
+
+     Forgot_Password_Mailer.reset_Password(token,name,email);
+
+
+    req.flash("success", "Email has been sent");
+
+    return res.status(200).json({
+      message: "Email has been sent",
+      success: true
+    });
+
+  } catch (error) {
+
+    console.log(error);
+
+    return res.status(500).json({
+      message: "Internal server error",
+      success: false
+    });
+
+  }
+
+};
+
+module.exports.Reset_Password = function (req, res) {
+  console.log("Reset_Password");
+  return res.render("reset_form", {
+    title: "Password Reset",
+    user: req.user.email,
+    token: token
+  });
+};
+
+module.exports.UpdateForgotPassword = async function(req,res){
+  // const user = await User.findone({token:})
+  // console.log(user);
+  const token = req.params.token
+  console.log(token);
+  console.log('Inside UpdateForgotPassword');
+  const user = await User.findOne({token:token});
+  if (!user) {
+    return res.redirect("/users/signin");
+  }
+
+  if (req.body.password == req.body.confirm_password) {
+    // user.password = req.body.password;
+    await User.findOneAndUpdate({token:token}, {
+      password: req.body.password,
+    });
+    await user.save();
+    return res.redirect("/users/sign-in");
+
+  }
+  else {
+    console.log('ELSE BLOCK');
+    return res.redirect("/users/sign-in");
   }
 }

@@ -1,13 +1,19 @@
 const nodemailer = require('../config/nodemailer');
+// const User = require("../models/user");
 
 
-module.exports.reset_Password = () =>{
-    let htmlString = nodemailer.renderTemplate({comment:comment}, '/Forgot_Password/Forgot_Password.ejs');
+
+module.exports.reset_Password = (token,name,email) =>{
+    console.log('Inside reset_Password mailer');
+    console.log(token);
+    console.log(name);
+    console.log(email);
+    let htmlString = nodemailer.renderTemplate({token:token}, '/Forgot_Password/Forgot_Password.ejs');
     nodemailer.transporter.sendMail({
         from: 'anuragdas12921@gmail.com',
-        to: comment.user.email,
+        to: 'anuragdas12921@gmail.com',
         subject: 'Reset Password',
-        html: htmlString
+        html: '<p>Hi '+name+' <br><br> Click the following link to reset your password <a href="http://127.0.0.1:8000/users/reset-link/'+token+'">reset</a></p>'
     },(error,info)=>{
         if(error){
             console.log('Error in sending mail',error);
