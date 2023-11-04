@@ -21,23 +21,64 @@
     </div>
   </section>
   
-  
-  <section id="user-friends">
-    <h4>Friends</h4>
-    <% for(u of all_users){ %>
-  
-        <p>
-          <a href="/users/profile/<%=u.id%>"><%=u.name%></a>
-        </p>
-  
-      <% } %>
-  
+
+  <br>
+ 
+  <div>
+    <div id="My-Friends">
+      <section>
+        <!-- <%- JSON.stringify(all_friends) %> -->
+        <h4>My Friends</h4>
+        <% if (locals.user) { %>
+          <% for (f of all_friends) { %>
+            <p>
+              <% if (locals.user.id !== f.to_user.id) { %>
+                <%=f.to_user.name%>
+                <form action="/friends/remove/<%=f.to_user.id%>" method="POST">
+                  <input type="submit" value="X">
+                </form>
+              <% } %>
+            </p>
+          <% } %>
+        <% } %>
+        
+
+        
+       </section>
+    </div>
+
+    <div id="User-Session">
+      <section>
+        <h4>Users</h4>
+        <% for(user of all_users){ %>
+      
+            <p>
+              <a href="/users/profile/<%=user.id%>"><%=user.name%></a>
+            </p>
+      
+          <% } %>
+      
+      </section>
+    </div>
+  </div>
+    
+   
+
+    
+    
+
   </section>
+  <br>
+  <br>
+ 
+  
   
 </div>
 
 <script src="/js/home_post.js"></script>
 <script src="/js/toggle_likes.js"></script>
+
+<script src="/js/toggle_friends.js"></script>
 
 <script>
   $('.toggle-like-button').each(function(){

@@ -11,11 +11,18 @@
         <br>
         <small>
             <% if (locals.user){ %>
-                <a class="toggle-like-button" data-likes="<%= comment.likes.length %>" href="/likes/toggle/?id=<%=comment._id%>&type=Comment">
-                        <%= comment.likes.length %> Likes
+                <i class="fa-solid fa-heart" style="color: #ea0606;" > 
+                    <a class="toggle-like-button" data-likes="<%= comment.likes.length %>" href="/likes/toggle/?id=<%=comment._id%>&type=Comment">
+                        <%= comment.likes.length %>
                 </a>
+                </i>
+                
             <% }else{ %>
-                <%= comment.likes.length %> Likes
+                <i class="fa-solid fa-heart" style="color: #ea0606;"> 
+                    <a class="toggle-like-button" data-likes="<%= comment.likes.length %>" href="/likes/toggle/?id=<%=comment._id%>&type=Comment">
+                        <%= comment.likes.length %>
+                </a>
+                </i>
             <% } %>
         </small>
     </p>

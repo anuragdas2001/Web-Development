@@ -19,4 +19,14 @@
 
     <p><%=profile_user.name%></p>
     <p><%=profile_user.email%></p>
+     
+    <small>
+        <form action="/friends/addfriend/<%=profile_user.id%>" method="POST">
+            <input type="submit" value="Add">
+        </form>
+        <!-- <a href="/friends/addfriend/<%=profile_user.id%>">Add</a> -->
+    </small>
 <%}%> 
+
+<script src="/js/toggle_friends.js">
+

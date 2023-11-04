@@ -4,11 +4,10 @@ const path = require("path");
 const nodeMailer = require("../config/nodemailer");
 const randomstring = require("randomstring");
 const queue = require("../config/kue");
-
+const Friendship = require('../models/friendship');
 const Forgot_Password_Mailer = require("../mailers/Forgot_Password");
 
 const reset_email_worker = require("../workers/reset_email_worker");
-
 module.exports.profile = function (req, res) {
   if (req.isAuthenticated()) {
     User.findById(req.params.id).then((user) => {
@@ -16,11 +15,49 @@ module.exports.profile = function (req, res) {
         title: "Users",
         profile_user: user,
       });
-    });
-  } else {
-    return res.redirect("/users/sign-in");
-  }
+    })
+    .catch((error)=>{
+      console.log(error);
+      return res.redirect('back');
+    })
+  } 
 };
+
+
+// module.exports.profile = async function (req, res) {
+
+//   if (!req.isAuthenticated()) {
+//     return res.redirect("/users/sign-in");
+//   }
+
+//   try {
+
+//     let user = await User.findById(req.params.id);
+
+//     let friendship1 = await Friendship.findOne({
+//       from_user: req.user.id,
+//       to_user: req.params.id  
+//     });
+
+//     let friendship2 = await Friendship.findOne({
+//       from_user: req.params.id, 
+//       to_user: req.user.id
+//     });
+
+//     let friendslist = await User.findById(req.user).populate('friends');
+
+//     return res.render("users_profile", {
+//       title: "Users",
+//       profile_user: user,
+//       friendslist: friendslist
+//     });
+
+//   } catch (error) {
+//     console.log(error);
+//     return res.redirect("/users/sign-in"); 
+//   }
+
+// };
 
 //render the sign up page
 module.exports.signup = function (req, res) {

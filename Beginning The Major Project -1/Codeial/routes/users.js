@@ -66,4 +66,7 @@ router.get("/reset-link/:token", (req, res) => {
 });
 router.post("/ForgotPassword", usercontroller.ForgotPassword);
 router.post("/UpdateForgotPassword/:token", usercontroller.UpdateForgotPassword);
+
+
+
 module.exports = router;

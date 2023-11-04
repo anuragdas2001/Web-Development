@@ -21,9 +21,7 @@ const comments= new mongoose.Schema({
 
 },{
     timestamps:true
-}
-
-);
+});
 
 const Comments=mongoose.model('Comments',comments);
 
