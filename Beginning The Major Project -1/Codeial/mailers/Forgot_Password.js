@@ -14,6 +14,7 @@ module.exports.reset_Password = (token,name,email) =>{
         to: 'anuragdas12921@gmail.com',
         subject: 'Reset Password',
         html: '<p>Hi '+name+' <br><br> Click the following link to reset your password <a href="http://127.0.0.1:8000/users/reset-link/'+token+'">reset</a></p>'
+        // html:htmlString
     },(error,info)=>{
         if(error){
             console.log('Error in sending mail',error);

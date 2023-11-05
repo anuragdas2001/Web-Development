@@ -24,50 +24,39 @@
 
   <br>
  
-  <div>
-    <div id="My-Friends">
-      <section>
+  <div id="group-list">
+    <div >
+      <section id="My-Friends">
         <!-- <%- JSON.stringify(all_friends) %> -->
         <h4>My Friends</h4>
-        <% if (locals.user) { %>
-          <% for (f of all_friends) { %>
-            <p>
-              <% if (locals.user.id !== f.to_user.id) { %>
-                <%=f.to_user.name%>
-                <form action="/friends/remove/<%=f.to_user.id%>" method="POST">
-                  <input type="submit" value="X">
-                </form>
-              <% } %>
-            </p>
-          <% } %>
-        <% } %>
         
+        <%- include('_friends') -%>
 
         
        </section>
     </div>
 
-    <div id="User-Session">
-      <section>
-        <h4>Users</h4>
-        <% for(user of all_users){ %>
-      
-            <p>
-              <a href="/users/profile/<%=user.id%>"><%=user.name%></a>
-            </p>
-      
-          <% } %>
-      
-      </section>
-    </div>
+    <div >
+    <section id="User-Session">
+      <h4>Users</h4>
+      <% for(user of all_users){ %>
+    
+          <p>
+            <a href="/users/profile/<%=user.id%>"><%=user.name%></a>
+          </p>
+    
+        <% } %>
+    
+    </section>
   </div>
+</div>
     
-   
+  <%- include('_chat_box') -%>
 
     
     
 
-  </section>
+ 
   <br>
   <br>
  

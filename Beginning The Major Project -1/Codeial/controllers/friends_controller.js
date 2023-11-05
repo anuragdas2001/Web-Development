@@ -66,7 +66,7 @@ module.exports.addFriend = async function (req, res) {
     });
 
     if (existingFriendship) {
-      req.flash('warning','Friendship Already Exists');
+      // req.flash('warning','Friendship Already Exists');
       return res.redirect('/');
     }
 

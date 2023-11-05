@@ -1,0 +1,12 @@
+<% if (locals.user) { %>
+    <% for (f of all_friends) { %>
+      <p>
+        <% if (locals.user.id !== f.to_user.id) { %>
+          <%=f.to_user.name%>
+          <form action="/friends/remove/<%=f.to_user.id%>" method="POST">
+            <input type="submit" value="X">
+          </form>
+        <% } %>
+      </p>
+    <% } %>
+  <% } %>
