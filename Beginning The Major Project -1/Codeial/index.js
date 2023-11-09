@@ -16,6 +16,13 @@ const passportJwt = require('./config/passport-jwt-strategy');
 const passportgoogle = require('./config/passport-google-oauth2-strategy');
 const flash = require('connect-flash');
 const customMWare = require('./config/middleware');
+
+//Setup the chat Server to be used with Socket.io
+const chatServer = require('http').Server(app);
+const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
+chatServer.listen(5000);
+console.log('Chat Server is listening on port 5000');
+
 app.use(express.urlencoded());
 
 app.use(cookieParser());
