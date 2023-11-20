@@ -67,7 +67,7 @@
 <script src="/js/home_post.js"></script>
 <script src="/js/toggle_likes.js"></script>
 
-<script src="/js/toggle_friends.js"></script>
+<!-- <script src="/js/toggle_friends.js"></script> -->
 
 <script>
   $('.toggle-like-button').each(function(){
@@ -77,4 +77,9 @@
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
-<script scr="/js/chat_engine.js"></script>
+<script src="/js/chat_engine.js"></script>
+<% if(locals.user) { %>
+    <script>
+      new ChatEngine('user-chat-box','<%=locals.user._id%>')
+   </script>
+<% } %>
