@@ -23,33 +23,35 @@
   
 
   <br>
- 
+  <%= locals.user.email %>
   <div id="group-list">
     <div >
       <section id="My-Friends">
         <!-- <%- JSON.stringify(all_friends) %> -->
         <h4>My Friends</h4>
         
-        <%- include('_friends') -%>
+        <!-- <%- include('_friends') -%> -->
 
         
        </section>
     </div>
+  <%= locals.user.email %>
 
     <div >
     <section id="User-Session">
       <h4>Users</h4>
-      <% for(user of all_users){ %>
-    
-          <p>
-            <a href="/users/profile/<%=user.id%>"><%=user.name%></a>
-          </p>
-    
+      <% for(u of all_users){ %>
+
+        <p>
+          <a href="/users/profile/<%=u.id%>"><%=u.name%></a>
+        </p>
+          
         <% } %>
     
     </section>
   </div>
 </div>
+  <%= locals.user.email %>
     
   <%- include('_chat_box') -%>
 
@@ -80,6 +82,6 @@
 <script src="/js/chat_engine.js"></script>
 <% if(locals.user) { %>
     <script>
-      new ChatEngine('user-chat-box','<%=locals.user._id%>')
+      new ChatEngine('user-chat-box','<%=locals.user.email%>')
    </script>
 <% } %>
