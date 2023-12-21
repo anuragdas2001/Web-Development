@@ -1,14 +1,14 @@
 const passport = require('passport');
 const googleStrategy = require('passport-google-oauth').OAuth2Strategy
 const crypto = require('crypto');
-
+const env = require('./environment');
 const User = require('../models/user');
 
 //tell passport to use a new Strategy for google login
 passport.use(new googleStrategy({
-    clientID:"502665739610-06qo6n62h8484ief284ttvmebu4rj9ru.apps.googleusercontent.com",
-    clientSecret:"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",
-    callbackURL:"http://localhost:8000/users/auth/google/callback"
+    clientID:env.google_client_ID,
+    clientSecret:env.google_clientSecret,
+    callbackURL:env.google_callbackURL
 },function(accessToken,refreshToken,profile,done){
     //find a user
     User.findOne({ email:profile.emails[0].value}).exec().then((user)=> {
