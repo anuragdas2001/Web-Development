@@ -1,0 +1,27 @@
+/* styles.css */
+
+#home-container {
+    display: flex;
+  }
+  
+  #group-list {
+    width: 25%; /* Adjust width as needed */
+    margin-left:50vh;
+  }
+  
+  #feed-post {
+    width: 75%; /* Adjust width as needed */
+    padding: 10px;
+    
+
+  }
+  
+  #My-Friends, #User-Session {
+    padding: 10px;
+    /* height: 80vh; */
+    border-left: 1px solid lightgray;
+
+  }
+  
+  /* Add any additional CSS styles here */
+  

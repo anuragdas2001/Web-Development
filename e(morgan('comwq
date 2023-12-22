@@ -1,0 +1,519 @@
+[33mcommit 4bd944ecceabc5e5bd54b7738fa9b4e507bbc2ae[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Thu Dec 21 20:09:57 2023 +0530
+
+    Setting Up Production Environment with Loggers
+
+[33mcommit 80d002aac24d28b8b3d22e34b6a32530ec2c614b[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Sun Dec 17 15:43:53 2023 +0530
+
+    Setting Up Development Environment
+
+[33mcommit ae22a899487200f02218c5b5b86b89867316445a[m
+Author: anuragdas2001 <anuragdas12921@gmail.com>
+Date:   Tue Nov 21 13:48:26 2023 +0530
+
+    Added User Name in the chat Engine
+
+[33mcommit 857783ac482e82bba8975f71da27088a7a2cf102[m
+Author: anuragdas2001 <anuragdas12921@gmail.com>
+Date:   Tue Nov 21 13:12:03 2023 +0530
+
+    Fixed Bugs with Chat Engine
+
+[33mcommit 65b0a80f58e398723f1d403271b51aa7b4dbea90[m
+Author: anuragdas2001 <anuragdas12921@gmail.com>
+Date:   Mon Nov 20 18:14:54 2023 +0530
+
+    Added Socket.io
+
+[33mcommit 9995984633f843d123afb38f93e37e4ecc4a6f20[m
+Author: anuragdas2001 <anuragdas12921@gmail.com>
+Date:   Thu Nov 9 18:34:28 2023 +0530
+
+    Setup with Socket.io
+
+[33mcommit a87bbefac870ac81563ceb006221ed756867b7a5[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Sun Nov 5 23:16:27 2023 +0530
+
+    Added Chatbox Design
+
+[33mcommit cc2592f819295f378b732f1ac87081f78b68c1b6[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Sat Nov 4 22:19:11 2023 +0530
+
+    Added Friends
+
+[33mcommit 211bf604525cc6897bb2e6be16524f368dec1420[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Mon Oct 30 00:01:26 2023 +0530
+
+    Fixed some Likes Bug
+
+[33mcommit 77483627d4b699e00a36c5e3f99eee8ec471ba09[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Sun Oct 29 23:15:43 2023 +0530
+
+    Added Likes in posts and comments
+
+[33mcommit 0dd95b29d0aa087b94ac506d6d9a92b31af9bd79[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Sun Oct 29 14:07:06 2023 +0530
+
+    Added Forgot Password & Fixed some Bugs
+
+[33mcommit 5a03a682eedc317fa42ab54832dd5f1d1c31429b[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Wed Oct 25 12:31:33 2023 +0530
+
+    Revert "Separated Reset Password & Forgot Password"
+    
+    This reverts commit 42238c4e496fc26d9e7469b22e146c184f33e926.
+
+[33mcommit c55da84cc170e06ad2a1d742cc373cc54bdc0b03[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Wed Oct 25 12:31:11 2023 +0530
+
+    Revert "Revert "Separated Reset Password & Forgot Password""
+    
+    This reverts commit 865028a682d52322607e4ec50c31c43d133ea740.
+
+[33mcommit bb65d719ab7daf36126f8535c0059547d7017ead[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Wed Oct 25 12:30:43 2023 +0530
+
+    Revert "Forgot Password Mailers"
+    
+    This reverts commit 73e778b0d1ddebb44321cb518b7341f36b0fdedb.
+
+[33mcommit 01c8b7f7055272cb142c4c2fd2dda936834b01c9[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Wed Oct 25 12:29:21 2023 +0530
+
+    Revert "Added Reset Password"
+    
+    This reverts commit 190c8f1738d67fd97c3c3f5ef799601c73640d0b.
+
+[33mcommit 190c8f1738d67fd97c3c3f5ef799601c73640d0b[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Sun Oct 15 21:51:29 2023 +0530
+
+    Added Reset Password
+
+[33mcommit 73e778b0d1ddebb44321cb518b7341f36b0fdedb[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Fri Oct 13 10:44:29 2023 +0530
+
+    Forgot Password Mailers
+
+[33mcommit 865028a682d52322607e4ec50c31c43d133ea740[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Thu Oct 12 23:50:39 2023 +0530
+
+    Revert "Separated Reset Password & Forgot Password"
+    
+    This reverts commit 42238c4e496fc26d9e7469b22e146c184f33e926.
+    
+    r
+
+[33mcommit 42238c4e496fc26d9e7469b22e146c184f33e926[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Thu Oct 12 21:48:00 2023 +0530
+
+    Separated Reset Password & Forgot Password
+
+[33mcommit bc44b8603512267048e6ca7d477343476b77f6f6[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Wed Oct 11 19:09:48 2023 +0530
+
+    Added Forgot Password For Local Accounts
+
+[33mcommit 036dddbcff6400163b0f2cfe06593ed4e0069916[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Wed Oct 11 16:50:48 2023 +0530
+
+    Added queue for comment emails using KUE & REDIS
+
+[33mcommit 6e4f0db4ac6218bb972ed229a558b30e9c7f65b1[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Tue Oct 10 00:04:56 2023 +0530
+
+    Added HTML email template for posts
+
+[33mcommit 415821fa02fdc25a33c92786907fb6ea0e4528f8[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Mon Oct 9 23:52:49 2023 +0530
+
+    Added HTML email template
+
+[33mcommit 35e7e6ec22250ff0675f2023d1763f99964e64c3[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Mon Oct 9 20:33:00 2023 +0530
+
+    Added Posts and Comments emails
+
+[33mcommit 0cd5dcd408f65ae8fa3415b07ce78017bf715242[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Mon Oct 9 19:39:22 2023 +0530
+
+    Setup Nodemailer
+
+[33mcommit 76cbbbca4b5a3127b85aa5ca2575306c804e26ec[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Fri Oct 6 21:55:54 2023 +0530
+
+    Added Google Authentication
+
+[33mcommit 341a173f7dc41ed44daaa6102fabf3fefd679582[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Thu Oct 5 17:33:21 2023 +0530
+
+    Authentication & Authorization
+
+[33mcommit dc6aa80cc2122a735be308199fa2c9650aab4266[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Wed Oct 4 23:55:42 2023 +0530
+
+    Created a Token
+
+[33mcommit cdf1d15c98ab2e5943c2934e3d0cb663c2db1358[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Wed Oct 4 22:45:58 2023 +0530
+
+    Set Up Passport JWT
+
+[33mcommit 8d73621ddad349f32b34680e0ce87e83c791c101[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Sun Oct 1 23:41:52 2023 +0530
+
+    check for user profile pic exist
+
+[33mcommit be886062d7c67d3eff0226e4f3759f8882b09d3a[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Sun Oct 1 22:56:32 2023 +0530
+
+    Implemented Multer and Added Avatar
+
+[33mcommit cdfe6c2cb13681175e3895a9b5ef1bc7e4d712d5[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Sat Sep 30 22:07:28 2023 +0530
+
+    Updating Posts and Comments using Ajax
+
+[33mcommit d3b790b56ddec593e372008c12347ede2ca877c2[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Sat Sep 30 13:32:55 2023 +0530
+
+    Added Flash Notification
+
+[33mcommit 2b0554200f31b92701866a832345c70d95c04e3e[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Thu Sep 28 14:24:09 2023 +0530
+
+    Refactor code with try/catch blocks for cleaner error handling
+
+[33mcommit 8c8b33c1dc56d9477b714397b97f4c473192a0ad[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Mon Sep 25 22:01:42 2023 +0530
+
+    Revamped the Home Page
+
+[33mcommit b7537db3d909b3a0980bbe81d00c65b4ae76a3a4[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Mon Sep 25 21:40:02 2023 +0530
+
+    Added Profile Updation Form
+
+[33mcommit 092f7feb474bf53ae671d3772ae663339e2eb99f[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Mon Sep 25 21:05:19 2023 +0530
+
+    Added Friends Section
+
+[33mcommit 36270eb638d2634269dbf80d00d773612886cf19[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Mon Sep 25 20:22:17 2023 +0530
+
+    Distributed the Post & Comments Views
+
+[33mcommit 62acb4ebbe755fe1dfe1601f7f3595d66f71687f[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Sun Sep 24 20:28:40 2023 +0530
+
+    Added Deletion Of Comments
+
+[33mcommit 1c59da69e127160cd5937d7d166c32f76de81018[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Sun Sep 24 19:40:05 2023 +0530
+
+    Fixed Few Bugs in the Home Layout
+
+[33mcommit c2d662918a081d12d2ac5ed3396a3429736e6b4b[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Sun Sep 24 17:18:11 2023 +0530
+
+    Added Deletion Of Posts
+
+[33mcommit 498008a9e509e4fab9cf1aa6dea0f404b26839f1[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Sat Sep 23 23:48:17 2023 +0530
+
+    Linked Comments to DB
+
+[33mcommit 894acd770085c475df885ef5425aa215136ed0e2[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Sat Sep 23 18:14:53 2023 +0530
+
+    Added Authentication for posts
+
+[33mcommit 8041adf33cb914f3af715bf6cef1a58268d80440[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Sat Sep 23 17:54:48 2023 +0530
+
+    Added Posts
+
+[33mcommit 6bb185d5b20abeab36674dcf8493734a573cc9e4[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Fri Sep 22 00:06:10 2023 +0530
+
+    Added Footer Styles
+
+[33mcommit 88f0cb6f5656c1dc7e0017902fe12d2654ccf839[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Thu Sep 21 23:53:15 2023 +0530
+
+    Added Header Styles
+
+[33mcommit 2cac7124ff18e98aa35e9e0a772769c938cdc072[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Wed Sep 20 20:23:13 2023 +0530
+
+    Set Up Mongo Store
+
+[33mcommit f3b6371bf86014a14a74e84d4ad7b241738d100b[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Wed Sep 20 01:09:18 2023 +0530
+
+    Set Up with Passport
+
+[33mcommit 81e3ea93f1ea5cbc53a3cab883c45cba00597bcf[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Wed Sep 6 13:43:14 2023 +0530
+
+    User Sign In Setup with DB
+
+[33mcommit 670fd782b63a5bbb18debd2bb1cc1a09789a6d35[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Wed Sep 6 12:55:04 2023 +0530
+
+    User Sign Up Setup with DB
+
+[33mcommit 4fcd1a89bd51c463ff5080620bfa25b1d89fa77f[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Sun Sep 3 20:02:25 2023 +0530
+
+    Added SignIn & SignUp Page
+
+[33mcommit 391890089095a46079b65900a3c479633fd689b7[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Sun Sep 3 00:59:35 2023 +0530
+
+    Added DB in Codeial
+
+[33mcommit ce33a8bf7de96c48ae10c4a4064e6068a02b9287[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Sun Sep 3 00:24:41 2023 +0530
+
+    Setup Static files access for layouts & Pages
+
+[33mcommit f265bc89658fb13296e2a9d1f1fee5182c7debce[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Thu Aug 31 15:17:30 2023 +0530
+
+    Set up the view engine
+
+[33mcommit fc7c574df97c4af1384847d9ddd45323e8d6bee1[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Thu Aug 31 12:11:54 2023 +0530
+
+    Added a Controller & router for home
+
+[33mcommit c7dfbfa855a3e9a0d34e43732c046dd5d40f36ee[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Wed Aug 30 14:42:26 2023 +0530
+
+    First Commit: create the directory structure and setup express server
+
+[33mcommit 35822e424ccf201567c5d481586e612d8c3def78[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Wed Aug 30 14:25:41 2023 +0530
+
+    Added Major Project -1
+
+[33mcommit befeb9c88b2ed08e2bc3a87f749556ccb0ccb696[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Wed Aug 30 11:51:10 2023 +0530
+
+    Added DB
+
+[33mcommit 3762f2f4e74b21d932c3bc5152dbdb9fe96333ee[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Sat Aug 19 17:53:23 2023 +0530
+
+    Added Node & Express Modules
+
+[33mcommit 0e38bda4428aca2c0f2f7007aebc1730ac5e2635[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Sun Aug 13 18:37:41 2023 +0530
+
+    Added Revealing Module Pattern
+
+[33mcommit e46fbbc8b28920df703acd1b8a3f4d276fa8f9a9[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Fri Aug 11 22:50:13 2023 +0530
+
+    Updated Delete icon
+
+[33mcommit e81bd9c80632cfcc2618d7c017b61ed3bbe7b999[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Fri Aug 11 22:44:25 2023 +0530
+
+    Added Todo List
+
+[33mcommit 686ed1028d241566f0a3b05606d610d77a7cec5f[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Mon Aug 7 20:23:36 2023 +0530
+
+    Added Ping Pong Game
+
+[33mcommit c83e365b50944db82550605eee3f533b5b79197f[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Fri Aug 4 22:34:11 2023 +0530
+
+    Add Prototypes
+
+[33mcommit 44d1c38cad85a4b9a32b6b99ac5d48d689559cd3[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Fri Aug 4 18:55:26 2023 +0530
+
+    Add Prototypes
+
+[33mcommit b0a064da871bdf4cb6ed85bb0dd807fb31cd1245[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Wed Aug 2 19:38:44 2023 +0530
+
+    Added Constructors
+
+[33mcommit c8c2e7d9ac2062376d378fc857d832cf051a0f2e[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Tue Aug 1 13:25:14 2023 +0530
+
+    Added Closures
+
+[33mcommit 4878ba7f7e0676edc84f6eadc4c2465319f01630[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Thu Jul 27 18:30:26 2023 +0530
+
+    Added Closures
+
+[33mcommit c2fed1028ca35f32b2dbf9a978616c61fe650b59[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Wed Jul 26 19:51:04 2023 +0530
+
+    Added SmoothScroll to portfolio
+
+[33mcommit d08bd1f4671090858cef2ecbe91f5f7d028d19e9[m
+Author: Anurag <anuragdas12921@gmail.com>
+Date:   Sat Jul 8 16:42:53 2023 +0530
+
+    Pi Working
+
+[33mcommit 935a089e6220e66b04f1cd66b4d4ddcaf54a3e7b[m
+Author: Anurag <anuragdas12921@gmail.com>
+Date:   Sat Jul 8 16:16:31 2023 +0530
+
+    SquareRoot Working
+
+[33mcommit d915ff614851a90f105c8b7b85c8daf5cc3cedd1[m
+Author: Anurag <anuragdas12921@gmail.com>
+Date:   Sat Jul 8 15:33:08 2023 +0530
+
+    BackSpace Working
+
+[33mcommit 1d41e5f8650f28efee2ebdc7c80d1df214613e8c[m
+Author: Anurag <anuragdas12921@gmail.com>
+Date:   Sat Jul 8 00:52:52 2023 +0530
+
+    Added Backspace Button
+
+[33mcommit b7eec28e642ff2e2be8dca0c69a61c606a95aab5[m
+Author: Anurag <anuragdas12921@gmail.com>
+Date:   Fri Jul 7 13:24:10 2023 +0530
+
+    Added Factorial And Percentage Functionalities
+
+[33mcommit cfe301fbd2119643cb1e800906c850a0223f9839[m
+Author: Anurag <anuragdas12921@gmail.com>
+Date:   Fri Jul 7 11:14:16 2023 +0530
+
+    Updated The Calculator
+
+[33mcommit bc95318e535fd24e54cf290e8a599c27b9a48c22[m
+Author: Anurag <anuragdas12921@gmail.com>
+Date:   Thu Jul 6 18:35:32 2023 +0530
+
+    Removed Old Resume Project
+
+[33mcommit 258a4434e1bda6468c49fff3e9a8af7de0005776[m
+Author: Anurag <anuragdas12921@gmail.com>
+Date:   Thu Jul 6 18:33:10 2023 +0530
+
+    Added Resume Project
+
+[33mcommit f62c689bc64d58d3946dd88c0c89e8bfe8276be9[m
+Author: Anurag <anuragdas12921@gmail.com>
+Date:   Thu Jul 6 18:29:43 2023 +0530
+
+    Added Resume Project
+
+[33mcommit 42878125af7f0665f0bb0c978019c771d8470729[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Anurag <anuragdas12921@gmail.com>
+Date:   Thu Jul 6 17:19:39 2023 +0530
+
+    Changes in the mini calculator
+
+[33mcommit 434b54276514e7a33b23685f2b8eb255b05f039b[m
+Author: Anurag <anuragdas12921@gmail.com>
+Date:   Thu Jul 6 16:46:31 2023 +0530
+
+    BootStrap And Projects Added
+
+[33mcommit f3925bb409da5e52584ab69b6ff4a205cd1d6bab[m
+Author: Anurag <anuragdas12921@gmail.com>
+Date:   Wed Jun 21 13:50:16 2023 +0530
+
+    Added BootStrap And Major Project -1
+
+[33mcommit 3d0a5217f656a6b3852aa356bc3eafdedaa16e02[m
+Author: Anurag <anuragdas12921@gmail.com>
+Date:   Wed May 10 19:57:11 2023 +0530
+
+            new file:   Responsive Designs/DesktopvsMobile.html
+            new file:   Responsive Designs/DvsM.css
+            new file:   Responsive Designs/MQ.css
+            new file:   Responsive Designs/MediaQueries.html
+            modified:   StartingwithResumeProject
+
+[33mcommit f627fc2a0478682b37d395c510c7e8c8032517f4[m
+Author: Anurag <anuragdas12921@gmail.com>
+Date:   Tue May 9 23:36:35 2023 +0530
+
+    Files Added
+
+[33mcommit b888234c929728b76b2d760df8420f0ff6e8d6f4[m
+Author: Anurag Das <anuragdas12921@gmail.com>
+Date:   Tue Mar 14 12:07:50 2023 +0530
+
+    Initial commit

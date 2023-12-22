@@ -1,0 +1,17 @@
+#layout-footer {
+  height: 10vh;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: grey;
+}
+#foots {
+  margin: 15px;
+}
+#home {
+    margin: 100px;
+  text-align: center;
+}
+#profile {
+  text-align: center;
+}
